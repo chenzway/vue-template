@@ -19,7 +19,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(Element, { size: 'medium' });
 
 // 项目中的样式是在 element-variables.scss 中引入的
-// 加载 elementUI 样式
+// css 加载 elementUI 样式
 @import "~element-ui/packages/theme-chalk/src/index";
 
 ```
@@ -35,6 +35,30 @@ cnpm i svg-sprite-loader script-ext-html-webpack-plugin -D
     test: /[\\/]node_modules[\\/]element-ui[\\/]/
   },
 ```
+
+Vue-router
+1. 安装  `cnpm i vue-router -S`
+2. main.js
+```javascript
+ // 引入
+import router from './router';
+
+// 挂载
+new Vue({
+  render: h => h(App),
+  router
+}).$mount('#app');
+```
+3. router.js
+```javascript
+//  引入与注册
+import Vue from 'vue';
+import Router from 'vue-router';
+Vue.use(Router);
+
+// 编辑路由
+```
+
 
 
 
