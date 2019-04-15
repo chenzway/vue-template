@@ -4,7 +4,7 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-12 18:40:52, Friday
+ * Last Modified: 2019-04-15 15:57:02, Monday
  * Modified By: chenzway
  * -----
  */
@@ -22,6 +22,7 @@ Vue.use(Element, { size: 'medium' });
 }); */
 
 import App from './App.vue';
+import store from './store';
 import router from './router';
 
 // 阻止 vue 在启动时生成生产提示
@@ -29,5 +30,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App),
+  store,
   router
 }).$mount('#app');

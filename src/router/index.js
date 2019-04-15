@@ -4,7 +4,7 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-12 18:58:08, Friday
+ * Last Modified: 2019-04-15 16:58:22, Monday
  * Modified By: chenzway
  * -----
  */
@@ -19,18 +19,22 @@ export const constantRoutes = [
   {
     path: '/test',
     component: () => import('@/views/test/Test')
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/login/Login')
   }
 ];
 
-// 创建路由函数
+// router 实例函数，传 `routes` 配置
 const createRouter = () =>
   new Router({
     // mode: 'history', // require service support
     scrollBehavior: () => ({ y: 0 }),
     routes: constantRoutes
-  })
-;
+  });
 
+// 实例化路由
 const router = createRouter();
 
 export default router;
