@@ -4,7 +4,7 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-15 16:58:22, Monday
+ * Last Modified: 2019-04-16 15:26:40, Tuesday
  * Modified By: chenzway
  * -----
  */
@@ -13,6 +13,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 Vue.use(Router);
+
+import Layout from '@/layout';
 
 // 创建常规路由
 export const constantRoutes = [
@@ -23,7 +25,26 @@ export const constantRoutes = [
   {
     path: '/login',
     component: () => import('@/views/login/Login')
+  },
+  {
+    path: '',
+    component: Layout,
+    redirect: 'home',
+    children: [
+      {
+        path: 'home',
+        component: () => import('@/views/home/Home'),
+        name: 'Dashboard',
+        meta: { title: '首页', icon: 'dashboard', noCache: true, affix: true }
+      }
+    ]
   }
+];
+
+export const asyncRoutes = [
+  /** modules **/
+  // nestedRouter,
+  { path: '*', redirect: '/404', hidden: true }
 ];
 
 // router 实例函数，传 `routes` 配置

@@ -4,7 +4,7 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-15 15:55:49, Monday
+ * Last Modified: 2019-04-16 16:01:36, Tuesday
  * Modified By: chenzway
  * -----
  */
@@ -13,6 +13,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import user from './modules/user';
+import app from './modules/app';
+import settings from './modules/settings';
+import tagsView from './modules/tagsView';
+import permission from './modules/permission';
 import getters from './getters';
 
 // 注册
@@ -20,7 +24,11 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
-    user
+    user,
+    app,
+    settings,
+    permission,
+    tagsView
   },
   getters
 });
