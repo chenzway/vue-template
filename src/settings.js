@@ -1,37 +1,27 @@
+/*
+ * File Created: 2019-04-17 15:53:13, Wednesday
+ * Author: chenzway
+ * Email:  599031437@qq.com
+ *
+ * 默认设置：配合 cookies 做持久缓存
+ */
+
 import variables from '@/styles/element-variables.scss';
+import Cookies from 'js-cookie';
+const getSidebarLogo = Cookies.get('sidebarLogo');
+let sidebarLogo = '';
+if (getSidebarLogo === 'false') {
+  sidebarLogo = false;
+} else {
+  sidebarLogo = true;
+}
+console.log(typeof Boolean(getSidebarLogo));
+console.log(Boolean(getSidebarLogo));
 
 export default {
   theme: variables.theme,
-
-  /**
-   * @type {boolean} true | false
-   * @description Whether show the settings right-panel
-   */
-  showSettings: true,
-
-  /**
-   * @type {boolean} true | false
-   * @description Whether need tagsView
-   */
-  tagsView: true,
-
-  /**
-   * @type {boolean} true | false
-   * @description Whether fix the header
-   */
-  fixedHeader: false,
-
-  /**
-   * @type {boolean} true | false
-   * @description Whether show the logo in sidebar
-   */
-  sidebarLogo: false,
-
-  /**
-   * @type {string | array} 'production' | ['production','development']
-   * @description Need show err logs component.
-   * The default is only used in the production env
-   * If you want to also use it in dev, you can pass ['production','development']
-   */
-  errorLog: 'production'
+  showSettings: Cookies.get('showSettings') || true,
+  tagsView: Cookies.get('tagsView') || true,
+  fixedHeader: Cookies.get('fixedHeader') || true,
+  sidebarLogo: sidebarLogo
 };

@@ -48,8 +48,8 @@ export const constantRoutes = [
         meta: { title: '首页', icon: 'dashboard', noCache: true, affix: true }
       }
     ]
-  }
-  /* {
+  },
+  {
     path: '/',
     component: Layout,
     redirect: 'test',
@@ -58,10 +58,10 @@ export const constantRoutes = [
         path: 'test',
         component: () => import('@/views/test/Test'),
         name: 'test',
-        meta: { title: 'test', icon: 'dashboard', noCache: true }
+        meta: { title: '测试', icon: 'drag', noCache: true }
       }
     ]
-  } */
+  }
 ];
 
 export const asyncRoutes = [

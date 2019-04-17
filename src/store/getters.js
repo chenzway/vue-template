@@ -4,8 +4,8 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-16 14:52:11, Tuesday
- * Modified By: chenzway
+ * Last Modified: Wed Apr 17 2019
+ * Modified By: PC-8676
  * -----
  */
 
@@ -23,8 +23,7 @@ const getters = {
   introduction: state => state.user.introduction,
   roles: state => state.user.roles,
   permission_routes: state => state.permission.routes,
-  addRoutes: state => state.permission.addRoutes,
-  errorLogs: state => state.errorLog.logs
+  addRoutes: state => state.permission.addRoutes
 };
 export default getters
 ;

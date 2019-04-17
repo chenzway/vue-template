@@ -7,7 +7,6 @@
       <el-button type="info">信息按钮</el-button>
       <el-button type="warning">警告按钮</el-button>
       <el-button type="danger">危险按钮</el-button>
-      {{ token }}
       {{ name }}
     </el-row>
   </div>
@@ -26,10 +25,6 @@ export default {
   },
   methods: {
     handleTest() {
-      this.$store.dispatch('user/login', 'testStore').then(res => {
-        console.log(res);
-      });
-
       this.$store.commit('user/SET_NAME', 'SET_NAME');
     }
   }

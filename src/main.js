@@ -3,8 +3,8 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-17 11:07:47, Wednesday
- * Modified By: chenzway
+ * Last Modified: Wed Apr 17 2019
+ * Modified By: PC-8676
  */
 
 import Vue from 'vue';
@@ -20,6 +20,7 @@ import '@/styles/index.scss'; // 全局css
 import App from './App.vue';
 import store from './store';
 import router from './router';
+import Cookies from 'js-cookie';
 
 import i18n from './lang'; // 多语言
 import './icons'; // 注册 icon 组件
@@ -34,8 +35,15 @@ Vue.use(Element, { size: 'medium', i18n: (key, value) => i18n.t(key, value) });
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
   store,
   router,
-  i18n
+  i18n,
+  /*  created() {
+    console.log(typeof Cookies.get('sidebarLogo'));
+    store.dispatch('settings/changeSetting', {
+      key: 'sidebarLogo',
+      value: Boolean(Cookies.get('sidebarLogo'))
+    });
+  }, */
+  render: h => h(App)
 }).$mount('#app');

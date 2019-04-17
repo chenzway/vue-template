@@ -1,6 +1,6 @@
 <script>
 // 重定向组件
-// 使用 Vue 生命组件函数获取路由中的 url 与 params 使用 vue-router 重定向
+// 使用 Vue 生命周期函数获取路由中的 url 与 params 根据 vue-router 重定向
 export default {
   beforeCreate() {
     const { params, query } = this.$route;

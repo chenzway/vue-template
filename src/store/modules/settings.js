@@ -1,12 +1,14 @@
 import defaultSettings from '@/settings';
 const { showSettings, tagsView, fixedHeader, sidebarLogo, theme } = defaultSettings;
 
+import Cookies from 'js-cookie';
+
 const state = {
-  theme: theme,
-  showSettings: showSettings,
-  tagsView: tagsView,
-  fixedHeader: fixedHeader,
-  sidebarLogo: sidebarLogo
+  theme,
+  showSettings,
+  tagsView,
+  fixedHeader,
+  sidebarLogo
 };
 
 const mutations = {
@@ -20,6 +22,8 @@ const mutations = {
 const actions = {
   changeSetting({ commit }, data) {
     commit('CHANGE_SETTING', data);
+    // HACK: 使用 cookie 存储 settings
+    Cookies.set(data.key, data.value);
   }
 };
 
