@@ -1,14 +1,11 @@
 /*
- *
- * File Created: 2018-12-11 11:22:43, Tuesday
+ * File Created: 2019-04-17 11:39:44, Wednesday
  * Author: chenzway
- * Email:  chenzway@163.com
- * -----
- * Last Modified: 2019-04-15 16:59:31, Monday
- * Modified By: chenzway
- * -----
- *  cookie， localStorage, sessionStorage 操作方法
+ * Email:  599031437@qq.com
+ *
+ * cookie， localStorage, sessionStorage 操作方法
  */
+
 import Cookies from 'js-cookie';
 const Space = 'base_';
 
@@ -37,7 +34,7 @@ const session = {
   set(k, v) {
     window.sessionStorage.setItem(Space + k, JSON.stringify(v));
   },
-  del(k) {
+  remove(k) {
     window.sessionStorage.removeItem(Space + k);
   }
 };
@@ -49,7 +46,7 @@ const local = {
   set(k, v) {
     window.localStorage.setItem(Space + k, JSON.stringify(v));
   },
-  del(k) {
+  remove(k) {
     window.localStorage.removeItem(Space + k);
   }
 };

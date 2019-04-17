@@ -108,6 +108,8 @@ const store = new Vuex.Store({
 
 export default store;
 
+
+
 getter.js
 const getters = {
   token: state => state.user.token,
@@ -115,6 +117,8 @@ const getters = {
 };
 
 export default getters;
+
+
 
 user.js
 const state = {
@@ -146,17 +150,19 @@ export default {
   actions
 };
 
-派发修改状态：
+
+
+// 使用：
+// 派发修改状态：
 this.$store.dispatch('user/login').then(res => {
   console.log(res);
 })
 
-直接修改(没有异步的情况下)：
- this.$store.commit('user/SET_NAME', 'SET_NAME');
+// 直接修改(没有异步的情况下)：
+this.$store.commit('user/SET_NAME', 'SET_NAME');
 
-获取getters
+// 获取 getters
 import { mapGetters } from 'vuex';
-
-computed 属性中：
+// computed 属性中：
 ...mapGetters(['token','name']),
 ```

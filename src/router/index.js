@@ -4,7 +4,7 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-16 15:26:40, Tuesday
+ * Last Modified: 2019-04-17 10:59:37, Wednesday
  * Modified By: chenzway
  * -----
  */
@@ -35,7 +35,7 @@ export const constantRoutes = [
         path: 'home',
         component: () => import('@/views/home/Home'),
         name: 'Dashboard',
-        meta: { title: '首页', icon: 'dashboard', noCache: true, affix: true }
+        meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
       }
     ]
   }

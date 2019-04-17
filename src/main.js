@@ -1,25 +1,21 @@
 /*
- *
  * File Created: 2019-04-11 16:07:19, Thursday
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-17 09:25:07, Wednesday
+ * Last Modified: 2019-04-17 11:07:47, Wednesday
  * Modified By: chenzway
- * -----
  */
 
 import Vue from 'vue';
 
-import 'normalize.css/normalize.css'; // 进度条样式
+import 'normalize.css/normalize.css';
 
 // 引入与 elementUI 组件及 样式
 import Element from 'element-ui';
 import './styles/element-variables.scss';
 
 import '@/styles/index.scss'; // 全局css
-
-import 'normalize.css/normalize.css';
 
 import App from './App.vue';
 import store from './store';
