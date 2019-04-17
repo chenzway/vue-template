@@ -1,7 +1,6 @@
 export default {
   navbar: {
     logOut: 'Salir',
-    dashboard: 'Panel de control',
     github: 'Github',
     theme: 'Tema',
     size: 'Tamaño global'

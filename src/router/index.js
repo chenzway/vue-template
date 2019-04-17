@@ -16,7 +16,7 @@ Vue.use(Router);
 
 import Layout from '@/layout';
 
-// 创建常规路由
+// 创建常规路由, 无权限要求
 export const constantRoutes = [
   // 重向组件
   {
@@ -29,11 +29,6 @@ export const constantRoutes = [
         component: () => import('@/views/redirect/index')
       }
     ]
-  },
-
-  {
-    path: '/test',
-    component: () => import('@/views/test/Test')
   },
 
   {
@@ -54,6 +49,19 @@ export const constantRoutes = [
       }
     ]
   }
+  /* {
+    path: '/',
+    component: Layout,
+    redirect: 'test',
+    children: [
+      {
+        path: 'test',
+        component: () => import('@/views/test/Test'),
+        name: 'test',
+        meta: { title: 'test', icon: 'dashboard', noCache: true }
+      }
+    ]
+  } */
 ];
 
 export const asyncRoutes = [
