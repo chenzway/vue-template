@@ -14,13 +14,14 @@ router.beforeEach(async(to, from, next) => {
   NProgress.start();
   // determine whether the user has logged in
   const hasToken = getToken();
+  console.log(hasToken);
   const accessRoutes = await store.dispatch(
     'permission/generateRoutes',
     'admin'
   );
   router.addRoutes(accessRoutes);
   next();
-  return;
+  return false;
 
   if (hasToken) {
     if (to.path === '/login') {

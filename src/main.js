@@ -4,18 +4,20 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-16 15:49:32, Tuesday
+ * Last Modified: 2019-04-17 09:25:07, Wednesday
  * Modified By: chenzway
  * -----
  */
 
 import Vue from 'vue';
-import 'normalize.css/normalize.css';
 
-// 引入与设置 elementUI
+import 'normalize.css/normalize.css'; // 进度条样式
+
+// 引入与 elementUI 组件及 样式
 import Element from 'element-ui';
 import './styles/element-variables.scss';
-import '@/styles/index.scss'; // global css
+
+import '@/styles/index.scss'; // 全局css
 
 import 'normalize.css/normalize.css';
 
@@ -24,6 +26,7 @@ import store from './store';
 import router from './router';
 
 import i18n from './lang'; // 多语言
+import './icons'; // 注册 icon 组件
 import './permission'; // 权限控制
 
 Vue.use(Element, { size: 'medium', i18n: (key, value) => i18n.t(key, value) });
