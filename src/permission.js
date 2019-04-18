@@ -1,13 +1,16 @@
+/*
+ * File Created: 2019-04-18 10:56:50, Thursday
+ * Author: chenzway
+ * Email:  599031437@qq.com
+ */
+
 import router from './router';
 import store from './store';
-import { Message } from 'element-ui';
-import NProgress from 'nprogress'; // progress bar
-import 'nprogress/nprogress.css'; // progress bar style
-import { getToken } from '@/utils/auth'; // get token from cookie
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+import { cookie } from '@/utils/cache';
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
-
-const whiteList = ['/login', '/auth-redirect']; // no redirect whitelist
 
 router.beforeEach(async(to, from, next) => {
   // start progress bar

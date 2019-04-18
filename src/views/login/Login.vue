@@ -16,6 +16,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+import { local } from '@/utils/cache';
+import { auth_rules_page } from '@/api/user';
 export default {
   name: 'Login',
   data() {
@@ -34,8 +36,22 @@ export default {
         .dispatch('user/login', this.loginForm)
         .then(res => {
           if (res) {
-            console.log(1);
-            this.$router.push({ path: '/' });
+            auth_rules_page()
+              .then(r => {
+                const auth = ['test'];
+                r.recordList.forEach(v => {
+                  auth.push(v.functionurl);
+                });
+                local.set('auth', auth);
+                console.log(local.get('auth'));
+                this.$router.push({ path: '/' });
+                this.loading = false;
+              })
+              .catch(() => {
+                this.loading = false;
+              });
+          } else {
+            this.loading = false;
           }
           this.loading = false;
         })

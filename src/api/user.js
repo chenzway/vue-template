@@ -4,8 +4,8 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-15 17:24:32, Monday
- * Modified By: chenzway
+ * Last Modified: Thu Apr 18 2019
+ * Modified By: PC-8676
  * -----
  */
 
@@ -23,6 +23,7 @@ function login(user_name, pw) {
 function logout() {
   return $post('user/logout');
 }
+
 function auth_rules_page(num_per_page = 1000) {
   return $post('user/auth_rules_page', { num_per_page });
 }

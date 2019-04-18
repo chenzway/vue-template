@@ -23,6 +23,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { cookie } from '@/utils/cache';
 import Breadcrumb from '@/components/Breadcrumb';
 import Hamburger from '@/components/Hamburger';
 
@@ -46,9 +47,14 @@ export default {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar');
     },
-    async logout() {
+    /* async logout() {
       await this.$store.dispatch('user/logout');
       this.$router.push(`/login?redirect=${this.$route.fullPath}`);
+    } */
+    logout() {
+      cookie.remove('token');
+      cookie.remove('name');
+      window.location.reload();
     }
   }
 };
