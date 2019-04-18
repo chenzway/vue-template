@@ -34,6 +34,7 @@ export default {
         .dispatch('user/login', this.loginForm)
         .then(res => {
           if (res) {
+            console.log(1);
             this.$router.push({ path: '/' });
           }
           this.loading = false;

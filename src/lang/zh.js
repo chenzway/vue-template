@@ -1,9 +1,6 @@
 export default {
   navbar: {
-    logOut: '退出登录',
-    github: '项目地址',
-    theme: '换肤',
-    size: '布局大小'
+    logOut: '退出登录'
   },
   tagsView: {
     refresh: '刷新',

@@ -12,10 +12,10 @@ import { cookie } from '@/utils/cache';
 function conversionType(v) {
   const val = cookie.get(v);
   let value = '';
-  if (val === 'false') {
-    value = false;
-  } else {
+  if (val === 'true') {
     value = true;
+  } else {
+    value = false;
   }
   return value;
 }
@@ -30,5 +30,5 @@ export default {
   showSettings,
   tagsView,
   fixedHeader,
-  sidebarLogo
+  sidebarLogo: true
 };

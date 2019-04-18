@@ -4,7 +4,7 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: Wed Apr 17 2019
+ * Last Modified: Thu Apr 18 2019
  * Modified By: PC-8676
  * -----
  */
@@ -37,6 +37,18 @@ export const constantRoutes = [
   },
 
   {
+    path: '/404',
+    component: () => import('@/views/errorPage/404'),
+    hidden: true
+  },
+
+  {
+    path: '/401',
+    component: () => import('@/views/errorPage/401'),
+    hidden: true
+  },
+
+  {
     path: '',
     component: Layout,
     redirect: 'home',
@@ -61,7 +73,8 @@ export const constantRoutes = [
         meta: { title: '测试', icon: 'drag', noCache: true }
       }
     ]
-  }
+  },
+  { path: '*', redirect: '/404', hidden: true }
 ];
 
 export const asyncRoutes = [

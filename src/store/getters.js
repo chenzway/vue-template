@@ -4,7 +4,7 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: Wed Apr 17 2019
+ * Last Modified: Thu Apr 18 2019
  * Modified By: PC-8676
  * -----
  */
@@ -18,7 +18,6 @@ const getters = {
   visitedViews: state => state.tagsView.visitedViews,
   cachedViews: state => state.tagsView.cachedViews,
   token: state => state.user.token,
-  avatar: state => state.user.avatar,
   name: state => state.user.name,
   introduction: state => state.user.introduction,
   roles: state => state.user.roles,
