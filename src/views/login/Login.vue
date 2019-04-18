@@ -30,34 +30,19 @@ export default {
     };
   },
   methods: {
-    login() {
+    async login() {
       this.loading = true;
-      this.$store
-        .dispatch('user/login', this.loginForm)
-        .then(res => {
-          if (res) {
-            auth_rules_page()
-              .then(r => {
-                const auth = ['test'];
-                r.recordList.forEach(v => {
-                  auth.push(v.functionurl);
-                });
-                local.set('auth', auth);
-                console.log(local.get('auth'));
-                this.$router.push({ path: '/' });
-                this.loading = false;
-              })
-              .catch(() => {
-                this.loading = false;
-              });
-          } else {
-            this.loading = false;
-          }
-          this.loading = false;
-        })
-        .catch(() => {
-          this.loading = false;
+      const res = await this.$store.dispatch('user/login', this.loginForm);
+      if (res) {
+        const result = await auth_rules_page();
+        const auth = ['test'];
+        result.recordList.forEach(v => {
+          auth.push(v.functionurl);
         });
+        local.set('auth', auth);
+        this.$router.push({ path: '/' });
+      }
+      this.loading = false;
     }
   }
 };
