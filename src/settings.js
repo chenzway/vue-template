@@ -3,25 +3,32 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  *
- * 默认设置：配合 cookies 做持久缓存
+ * 默认设置：配合 cookie 做持久缓存
  */
 
 import variables from '@/styles/element-variables.scss';
-import Cookies from 'js-cookie';
-const getSidebarLogo = Cookies.get('sidebarLogo');
-let sidebarLogo = '';
-if (getSidebarLogo === 'false') {
-  sidebarLogo = false;
-} else {
-  sidebarLogo = true;
+import { cookie } from '@/utils/cache';
+
+function conversionType(v) {
+  const val = cookie.get(v);
+  let value = '';
+  if (val === 'false') {
+    value = false;
+  } else {
+    value = true;
+  }
+  return value;
 }
-console.log(typeof Boolean(getSidebarLogo));
-console.log(Boolean(getSidebarLogo));
+
+const showSettings = conversionType('showSettings');
+const tagsView = conversionType('tagsView');
+const fixedHeader = conversionType('fixedHeader');
+const sidebarLogo = conversionType('sidebarLogo');
 
 export default {
-  theme: variables.theme,
-  showSettings: Cookies.get('showSettings') || true,
-  tagsView: Cookies.get('tagsView') || true,
-  fixedHeader: Cookies.get('fixedHeader') || true,
-  sidebarLogo: sidebarLogo
+  theme: cookie.get('theme') || variables.theme,
+  showSettings,
+  tagsView,
+  fixedHeader,
+  sidebarLogo
 };

@@ -1,7 +1,7 @@
 import defaultSettings from '@/settings';
 const { showSettings, tagsView, fixedHeader, sidebarLogo, theme } = defaultSettings;
 
-import Cookies from 'js-cookie';
+import { cookie } from '@/utils/cache';
 
 const state = {
   theme,
@@ -23,7 +23,7 @@ const actions = {
   changeSetting({ commit }, data) {
     commit('CHANGE_SETTING', data);
     // HACK: 使用 cookie 存储 settings
-    Cookies.set(data.key, data.value);
+    cookie.set(data.key, data.value);
   }
 };
 
