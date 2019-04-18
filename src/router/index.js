@@ -70,17 +70,13 @@ export const constantRoutes = [
         path: 'test',
         component: () => import('@/views/test/Test'),
         name: 'test',
-        meta: { title: '测试', icon: 'drag', noCache: true }
+        meta: { title: '测试', icon: 'drag', noCache: true, affix: true }
       }
     ]
-  }
+  },
 ];
 
-export const asyncRoutes = [
-  /** modules **/
-  // nestedRouter,
-  { path: '*', redirect: '/404', hidden: true }
-];
+export const asyncRoutes = [{ path: '*', redirect: '/404', hidden: true }];
 
 // router 实例函数，传 `routes` 配置
 const createRouter = () =>

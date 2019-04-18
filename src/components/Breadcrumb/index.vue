@@ -29,14 +29,13 @@ export default {
   },
   methods: {
     getBreadcrumb() {
-      const matched = this.$route.matched.filter(item => item.name);
+      let matched = this.$route.matched.filter(item => item.name);
 
       // HACK: 修改只有一个路由时默认添加的情况
       /* const first = matched[0];
       if (first && first.name.trim().toLocaleLowerCase() !== 'Dashboard'.toLocaleLowerCase()) {
         matched = [{ path: '/dashboard', meta: { title: 'dashboard' }}].concat(matched);
       } */
-
       this.levelList = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false);
     },
     pathCompile(path) {

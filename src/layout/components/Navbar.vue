@@ -8,7 +8,7 @@
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <!-- <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar"> -->
-          <img src="@/assets/avatar.jpg" width="48" height="48">
+          <img src="@/assets/avatar.gif" width="48" height="48" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
@@ -23,7 +23,6 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { cookie } from '@/utils/cache';
 import Breadcrumb from '@/components/Breadcrumb';
 import Hamburger from '@/components/Hamburger';
 
