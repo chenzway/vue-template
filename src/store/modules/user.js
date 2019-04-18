@@ -4,13 +4,11 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: 2019-04-16 16:02:03, Tuesday
- * Modified By: chenzway
- * -----
  */
 
 import { login } from '@/api/user';
 import { setToken, cookie } from '@/utils/cache';
+import router, { resetRouter } from '@/router';
 
 const state = {
   token: 'token',
@@ -46,6 +44,22 @@ const actions = {
           reject(error);
         });
     });
+  },
+
+  logout({ commit, state }) {
+    return new Promise((resolve, reject) => {
+      commit('SET_TOKEN', '');
+      commit('SET_NAME', '');
+      commit('SET_ROLES', []);
+      cookie.remove('token');
+      cookie.remove('name');
+      resetRouter();
+      resolve();
+    });
+  },
+
+  setRoles({ commit, state }, roles) {
+    commit('SET_ROLES', roles);
   }
 };
 

@@ -8,21 +8,38 @@ import router from './router';
 import store from './store';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import { cookie } from '@/utils/cache';
+import { cookie, local } from '@/utils/cache';
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 router.beforeEach(async(to, from, next) => {
-  // start progress bar
   NProgress.start();
-  // determine whether the user has logged in
-  const accessRoutes = await store.dispatch(
-    'permission/generateRoutes',
-    'admin'
-  );
-  router.addRoutes(accessRoutes);
-  next();
-  return false;
+  const hasToken = cookie.get('token');
+  if (hasToken) {
+    if (to.path === '/login') {
+      next({ path: '/' });
+      NProgress.done();
+    } else {
+      const hasRoles = store.getters.roles && store.getters.roles.length > 0;
+      if (hasRoles) {
+        next();
+      } else {
+        const roles = local.get('auth');
+        store.dispatch('user/setRoles', roles);
+        const accessRoutes = await store.dispatch('permission/generateRoutes', roles);
+
+        router.addRoutes(accessRoutes);
+        next({ ...to, replace: true });
+        NProgress.done();
+      }
+    }
+  } else {
+    if (to.path === '/login') {
+      next();
+    } else {
+      next('/login'); // 否则全部重定向到登录页
+    }
+  }
 });
 
 router.afterEach(() => {

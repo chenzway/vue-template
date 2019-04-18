@@ -23,7 +23,7 @@ import router from './router';
 
 import i18n from './lang'; // 多语言
 import './icons'; // 注册 icon 组件
-// import './permission'; // 权限控制
+import './permission'; // 权限控制
 
 Vue.use(Element, { size: 'medium', i18n: (key, value) => i18n.t(key, value) });
 /* Vue.use(Element, {

@@ -73,8 +73,7 @@ export const constantRoutes = [
         meta: { title: '测试', icon: 'drag', noCache: true }
       }
     ]
-  },
-  { path: '*', redirect: '/404', hidden: true }
+  }
 ];
 
 export const asyncRoutes = [
@@ -90,6 +89,12 @@ const createRouter = () =>
     scrollBehavior: () => ({ y: 0 }),
     routes: constantRoutes
   });
+
+// 创建新路由并进行重置
+export function resetRouter() {
+  const newRouter = createRouter();
+  router.matcher = newRouter.matcher;
+}
 
 // 实例化路由
 const router = createRouter();
