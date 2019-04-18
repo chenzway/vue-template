@@ -211,7 +211,8 @@ export default {
       height: 26px;
       line-height: 26px;
       border: 1px solid #d8dce5;
-      color: #495060;
+      /* color: #495060; */
+      color: #d8dce5;
       background: #fff;
       padding: 0 8px;
       font-size: 12px;
@@ -224,19 +225,21 @@ export default {
         margin-right: 15px;
       }
       &.active {
-        background-color: #42b983;
-        color: #fff;
-        border-color: #42b983;
-        &::before {
+        border: 1px solid #409eff;
+        color: #409eff;
+        /* border-color: #42b983; */
+        /* background-color: #42b983; */
+        /* color: #fff; */
+        /* &::before {
           content: '';
-          background: #fff;
+          background: #409eff;
           display: inline-block;
           width: 8px;
           height: 8px;
           border-radius: 50%;
           position: relative;
           margin-right: 2px;
-        }
+        } */
       }
     }
   }
@@ -282,7 +285,7 @@ export default {
         vertical-align: -3px;
       }
       &:hover {
-        background-color: #b4bccc;
+        background-color: #409eff;
         color: #fff;
       }
     }
