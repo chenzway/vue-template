@@ -4,9 +4,6 @@
  * Author: chenzway
  * Email:  599031437@qq.com
  * -----
- * Last Modified: Thu Apr 18 2019
- * Modified By: PC-8676
- * -----
  */
 
 // 引入与注册
@@ -73,7 +70,7 @@ export const constantRoutes = [
         meta: { title: '测试', icon: 'drag', noCache: true, affix: true }
       }
     ]
-  },
+  }
 ];
 
 export const asyncRoutes = [{ path: '*', redirect: '/404', hidden: true }];

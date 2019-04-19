@@ -27,8 +27,8 @@ const sidebarLogo = conversionType('sidebarLogo');
 
 export default {
   theme: cookie.get('theme') || variables.theme,
-  showSettings,
+  showSettings: true,
   tagsView,
   fixedHeader,
-  sidebarLogo: true
+  sidebarLogo
 };
