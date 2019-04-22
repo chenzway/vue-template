@@ -3,8 +3,8 @@
  * Author: chenzway
  * Email:  chenzway@163.com
  * -----
- * Last Modified: 2019-04-15 17:28:35, Monday
- * Modified By: chenzway
+ * Last Modified: Mon Apr 22 2019
+ * Modified By: PC-8676
  * ----
  */
 
@@ -159,11 +159,11 @@ service.interceptors.response.use(
 // 直接使用 axios, axios.post 可做请求
 // export default service;
 
-const $post = (url, data = {}) => {
+const $request = (url, method = 'POST', data = {}) => {
   return new Promise((resolve, reject) => {
     service({
-      method: 'post',
       url,
+      method,
       data,
       cancelToken: new CancelToken(c => {
         cancel = c;
@@ -197,4 +197,4 @@ const $get = (url, params = {}) => {
   });
 };
 
-export { $post, $get };
+export { $request, $get };

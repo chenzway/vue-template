@@ -5,7 +5,7 @@
         v-for="tag in visitedViews"
         ref="tag"
         :key="tag.path"
-        :class="isActive(tag)?'active':''"
+        :class="isActive(tag)?'active tagActive':''"
         :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
         tag="span"
         class="tags-view-item"
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import defaultSettings from '@/settings';
 import ScrollPane from './ScrollPane';
 import { generateTitle } from '@/utils/i18n';
 import path from 'path';
@@ -56,6 +57,9 @@ export default {
     },
     routes() {
       return this.$store.state.permission.routes;
+    },
+    changnTheme() {
+      return this.$store.state.settings.theme;
     }
   },
   watch: {
@@ -69,11 +73,22 @@ export default {
       } else {
         document.body.removeEventListener('click', this.closeMenu);
       }
+    },
+    changnTheme(val) {
+      const dom = document.querySelector('.tagActive');
+      dom.style.borderColor = val;
+      dom.style.color = val;
     }
   },
   mounted() {
     this.initTags();
     this.addTags();
+
+    this.$nextTick(() => {
+      const dom = document.querySelector('.tagActive');
+      dom.style.borderColor = defaultSettings.theme;
+      dom.style.color = defaultSettings.theme;
+    });
   },
   methods: {
     generateTitle, // generateTitle by vue-i18n
@@ -269,7 +284,7 @@ export default {
 
 <style lang="scss">
 //reset element css of el-icon-close
-.tags-view-wrapper {
+/* .tags-view-wrapper {
   .tags-view-item {
     .el-icon-close {
       width: 16px;
@@ -290,5 +305,5 @@ export default {
       }
     }
   }
-}
+} */
 </style>
