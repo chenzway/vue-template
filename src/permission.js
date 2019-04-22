@@ -10,7 +10,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { cookie, local } from '@/utils/cache';
 
-NProgress.configure({ showSpinner: false }); // NProgress Configuration
+NProgress.configure({ showSpinner: false });
 
 router.beforeEach(async(to, from, next) => {
   NProgress.start();
@@ -24,7 +24,7 @@ router.beforeEach(async(to, from, next) => {
       if (hasRoles) {
         next();
       } else {
-        const roles = local.get('auth');
+        const roles = local.get('auth') || ['test'];
         store.dispatch('user/setRoles', roles);
         const accessRoutes = await store.dispatch('permission/generateRoutes', roles);
 
@@ -37,7 +37,7 @@ router.beforeEach(async(to, from, next) => {
     if (to.path === '/login') {
       next();
     } else {
-      next('/login'); // 否则全部重定向到登录页
+      next('/login');
     }
   }
 });
