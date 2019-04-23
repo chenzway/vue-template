@@ -75,9 +75,8 @@ export default {
       }
     },
     changnTheme(val) {
-      const dom = document.querySelector('.tagActive');
-      dom.style.borderColor = val;
-      dom.style.color = val;
+      // 设置 css 变量
+      document.documentElement.style.setProperty('--tagViews-color', val);
     }
   },
   mounted() {
@@ -85,9 +84,11 @@ export default {
     this.addTags();
 
     this.$nextTick(() => {
-      const dom = document.querySelector('.tagActive');
-      dom.style.borderColor = defaultSettings.theme;
-      dom.style.color = defaultSettings.theme;
+      /*  获取 css 变量
+      var styles = getComputedStyle(document.documentElement);
+      var colorValue = styles.getPropertyValue('tagViews-color');
+      console.log(colorValue); // red */
+      document.documentElement.style.setProperty('--tagViews-color', defaultSettings.theme);
     });
   },
   methods: {
@@ -209,9 +210,17 @@ export default {
     }
   }
 };
+
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+/* // HACK:  css变量 */
+/* 定义全局变量，注意去除 scope 属性 */
+:root {
+ --tagViews-color: green
+ /* tagViews-color: '409eff' */
+}
+
 .tags-view-container {
   height: 34px;
   width: 100%;
@@ -240,8 +249,11 @@ export default {
         margin-right: 15px;
       }
       &.active {
-        border: 1px solid #409eff;
-        color: #409eff;
+        /* var 函数定义变量 */
+        border: 1px solid var(--tagViews-color);
+        color: var(--tagViews-color)
+        /* border: 1px solid #409eff; */
+        /* color: #409eff; */
         /* border-color: #42b983; */
         /* background-color: #42b983; */
         /* color: #fff; */
