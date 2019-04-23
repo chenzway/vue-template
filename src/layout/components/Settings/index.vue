@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import defaultSettings from '@/settings';
 import ThemePicker from '@/components/ThemePicker';
 
 export default {
@@ -70,6 +71,11 @@ export default {
       }
     }
   },
+  mounted() {
+    this.$nextTick(() => {
+      document.documentElement.style.setProperty('--switch-checked-color', defaultSettings.theme);
+    });
+  },
   methods: {
     themeChange(val) {
       this.$store.dispatch('settings/changeSetting', {
@@ -106,3 +112,14 @@ export default {
   }
 }
 </style>
+<style lang="scss">
+:root {
+ --switch-checked-color: green
+}
+.el-switch.is-checked .el-switch__core {
+  border-color: var(--switch-checked-color);
+  background-color: var(--switch-checked-color);
+}
+
+</style>
+
